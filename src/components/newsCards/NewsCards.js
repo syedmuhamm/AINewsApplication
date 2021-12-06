@@ -16,7 +16,7 @@ const infoCards = [
     color: "#4527a0",
     title: "News by Terms",
     info: "Bitcoin, PlayStation 5, Smartphones, Donald Trump...",
-    text: "What's up with PlayStation 5",
+    text: "What is up with PlayStation 5",
   },
   {
     color: "#283593",
@@ -26,14 +26,14 @@ const infoCards = [
   },
 ];
 
-const NewsCards = ({ articles }) => {
+const NewsCards = ({ articles, activeArticle }) => {
   const classes = useStyles();
 
   if (!articles.length) {
     return (
       <Grow in>
         <Grid
-          classname={classes.container}
+          className={classes.container}
           container
           alignItems="stretch"
           spacing={3}
@@ -80,7 +80,11 @@ const NewsCards = ({ articles }) => {
       >
         {articles.map((article, index) => (
           <Grid item xs={12} sm={6} md={4} lg={3} style={{ display: "flex" }}>
-            <NewsCard article={article} index={index} />
+            <NewsCard
+              article={article}
+              activeArticle={activeArticle}
+              index={index}
+            />
           </Grid>
         ))}
       </Grid>
